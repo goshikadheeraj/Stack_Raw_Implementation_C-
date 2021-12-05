@@ -99,25 +99,25 @@ int main()
         cout<<"CHOOSE OPERATION \n 1 - PUSH \n 2 - POP \n 3 - PEEK \n 4 - DISPLAY \n 5 - EXIT"<<endl;
       int Choice;
       cin>>Choice;
-      if(Choice==1)
+      switch(Choice)
       {
-          Object.Push();
-      }
-      else if(Choice==2)
-      {
-          Object.Pop();
-      }
-      else if(Choice==3)
-      {
-          Object.Peek();
-      }
-      else if(Choice==4)
-      {
-          Object.Display();
-      }
-      else
-      {
-          break;
+          case 1:
+            Object.Push();
+            break;
+          case 2:
+            Object.Pop();
+            break;
+          case 3:
+            Object.Peek();
+            break;
+          case 4:
+            Object.Display();
+            break;
+          case 5:
+            break;
+          case 6:
+            cout<<"SELECT CORRECT OPTION"<<endl;
+            break;
       }
     }
     return 0;
