@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 int size;
+template <typename T>
 class Stack
 {
-    int Container[1000],top = -1;
+    T Container[1000],top = -1;
     public:
     void Initialize(int size)
     {
@@ -11,7 +12,7 @@ class Stack
     }
     void Push()
     {
-        int Element;
+        T Element;
         cout<<"Enter the element to push into the stack"<<endl;
         cin>>Element;
         if(IsFull())
@@ -89,7 +90,7 @@ class Stack
 };
 int main()
 {
-    Stack Object;
+    Stack<char>Object;
     cout<<"Enter the size of the stack"<<endl;
     cin>>size;
     Object.Initialize(size);
