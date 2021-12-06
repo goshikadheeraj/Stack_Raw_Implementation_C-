@@ -15,26 +15,40 @@ class Stack
         T Element;
         cout<<"Enter the element to push into the stack"<<endl;
         cin>>Element;
-        if(IsFull())
-        {
-           cout<<"STACK FULL OVERFLOW EXCEPTION"<<endl; 
+        try{
+            if(IsFull())
+            {
+                throw(Element);
+            }
+            else
+            {
+                Container[++top] = Element;
+            }
         }
-        else
+        catch(int ex)
         {
-            cout<<"INSERTED ELEMENT"<<endl;
-            Container[++top] = Element;
+            cout<<"Exception Caught Stack Overflow "<<endl;
+            cout<<ex<<" "<<"Element cant be inserted"<<endl;
+            exit(0);
         }
     }
     void Pop()
     {
-        if(IsEmpty())
-        {
-            cout<<"STACK IS EMPTY UNDERFLOW"<<endl;
+        try{
+            if(IsEmpty())
+            {
+                throw(0);
+            }
+            else
+            {
+                cout<<"Element Popped - "<<Container[top]<<endl;
+                Container[--top];
+            }
         }
-        else
+        catch(int Exception)
         {
-            cout<<"ELEMENT POPPED"<<endl;
-            top--;
+            cout<<"Exception Caught Stack Underflow "<<endl;
+            exit(0); 
         }
     }
     void Peek()
@@ -90,7 +104,7 @@ class Stack
 };
 int main()
 {
-    Stack<char>Object;
+    Stack<int>Object;
     cout<<"Enter the size of the stack"<<endl;
     cin>>size;
     Object.Initialize(size);
